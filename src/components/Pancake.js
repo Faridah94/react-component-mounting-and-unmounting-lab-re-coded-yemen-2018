@@ -10,40 +10,32 @@ class Pancake extends React.Component {
     };
   }
 
-updateCounter = () => {
-  this.setState({
-    timeCooked: this.state.timeCooked + 1
-  });
-};
-
-// TODO: create a componentDidMount() which will start the interval to count how long the pancake has been cooking
-componentDidMount(){
-this.startInterval();
-}
-// TODO: create a componentWillUnmount() which will clear the interval
-componentWillUnmount() {
-    this.cleanUpInterval()
+  // TODO: create a componentDidMount() which will start the interval to count how long the pancake has been cooking
+  
+    componentDidMount() {
+    this.startInterval();
   }
 
-<<<<<<< HEAD
-startInterval = () => {
-  this.interval = setInterval(this.updateCounter, 1000);
-};
-
-cleanUpInterval = () => {
-  clearInterval(this.interval);
-};
-=======
-  componentDidMount() {
-      this.interval = setInterval(this.updateCounter, 1000);
-
-  }
->>>>>>> 4b7da2f8fdcbe43d058a1258ad82aa36772d4c9f
-
-
+  // TODO: create a componentWillUnmount() which will clear the interval
+  
   componentWillUnmount() {
-      clearInterval(this.interval);
+    this.cleanUpInterval();
+}
+
+  updateCounter = () => {
+    this.setState({
+      timeCooked: this.state.timeCooked + 1
+    });
+  };
+
+  startInterval = () => {
+    this.interval = setInterval(this.updateCounter, 1000);
   }
+
+  cleanUpInterval = () => {
+    clearInterval(this.interval);
+  }
+
   flip = () => {
     this.setState({
       flippedAt: this.state.timeCooked
@@ -61,9 +53,10 @@ cleanUpInterval = () => {
     }
 
     //second side
-    if (flippedAt > 2 || timeCooked > 4) return "burnt";
-    if (timeCooked === 4 && flippedAt === 2) return "cooked";
-    return "raw";
+    if (timeCooked > 4) return 'burnt'
+    if (timeCooked === 4) return 'cooked'
+    if (timeCooked < 4) return 'raw'
+    return 'burnt'
   };
 
   takeItOff = () => {
@@ -98,5 +91,4 @@ cleanUpInterval = () => {
     );
   }
 }
-
 export default Pancake;

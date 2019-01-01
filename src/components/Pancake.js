@@ -25,6 +25,7 @@ componentWillUnmount() {
     this.cleanUpInterval()
   }
 
+<<<<<<< HEAD
 startInterval = () => {
   this.interval = setInterval(this.updateCounter, 1000);
 };
@@ -32,7 +33,17 @@ startInterval = () => {
 cleanUpInterval = () => {
   clearInterval(this.interval);
 };
+=======
+  componentDidMount() {
+      this.interval = setInterval(this.updateCounter, 1000);
 
+  }
+>>>>>>> 4b7da2f8fdcbe43d058a1258ad82aa36772d4c9f
+
+
+  componentWillUnmount() {
+      clearInterval(this.interval);
+  }
   flip = () => {
     this.setState({
       flippedAt: this.state.timeCooked
